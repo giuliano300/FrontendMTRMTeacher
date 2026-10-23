@@ -1,0 +1,13 @@
+@use '../../../styles/section-header' as section;
+header{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px}header span,.hero span{color:#f08b21;text-transform:uppercase;letter-spacing:.14em;font-size:10px;font-weight:800}h1{font-size:30px;margin:7px 0}header p,.hero p{color:#748397;margin:0}header select{min-width:310px;border:1px solid #dbe6ee;background:#fff;border-radius:10px;padding:11px;font:inherit}.hero,.panel,.empty{background:#fff;border:1px solid #e3ecf3;border-radius:16px;box-shadow:0 8px 26px rgba(20,45,74,.05)}.hero{display:grid;grid-template-columns:1fr auto auto;gap:22px;align-items:center;padding:21px;margin-bottom:16px}.hero h2{margin:7px 0}.hero>strong{font-size:26px;color:#1683b4;text-align:center}.hero>strong small{display:block;color:#7b8a9b;font-size:10px}.hero button{border:0;background:#f08b21;color:#fff;border-radius:10px;padding:11px 14px;display:flex;align-items:center;gap:8px;font:inherit;font-weight:800}.panel{overflow:hidden}.row{display:grid;grid-template-columns:1.2fr .7fr 1fr .7fr 1fr;gap:12px;align-items:center;padding:13px 20px;border-bottom:1px solid #edf2f5;font-size:12px}.row.head{background:#f9fbfc;color:#8090a1;text-transform:uppercase;font-size:9px;font-weight:800}.row select,.row input{border:1px solid #dbe6ee;border-radius:8px;padding:8px;background:#fff;font:inherit}.row code{color:#167fae}.empty{padding:25px;color:#75869a}@media(max-width:800px){header{align-items:flex-start;flex-direction:column;gap:14px}header select{min-width:0;width:100%}.hero{grid-template-columns:1fr}.hero>strong{text-align:left}.panel{overflow:auto}.row{min-width:780px}}
+
+@include section.section-header;
+.row { grid-template-columns: 1.2fr .7fr 1fr .7fr 1fr auto; font-size: 13px; }
+.record-button { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; border: 1px solid #d6e7ef; border-radius: 9px; padding: 8px 12px; background: #edf8fd; color: #157ca9; font: 650 13px var(--font-ui); cursor: pointer; }
+.attendance-badge { justify-self: start; padding: 6px 9px; border-radius: 7px; background: #eef3f6; color: #627a88; font-style: normal; }
+.attendance-badge.present { background: #e9f6ee; color: #27754e; }
+.attendance-note { color: #748397; overflow-wrap: anywhere; }
+.attendance-feedback { padding: 13px 18px; border: 1px solid #cee8da; border-radius: 12px; background: #edf8f2; color: #27754e; }
+.attendance-feedback.error { border-color: #edcebf; background: #fff3ec; color: #9a472b; }
+.register-hint { font-size: 13px; line-height: 1.6; }
+:host .hero button { color: #fff; font: 500 13px var(--font-ui); }

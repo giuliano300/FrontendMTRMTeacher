@@ -1,0 +1,48 @@
+<div class="app-shell" [class.sidebar-open]="sidebarOpen">
+  <aside class="sidebar">
+    <a class="brand" routerLink="/dashboard">
+      <span class="brand-mark"><span></span><span></span><span></span></span>
+      <div><strong>WAMAN</strong><small>MTRM training hub</small></div>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <span class="nav-label">Workspace</span>
+      <a *ngFor="let item of nav" class="nav-item" [routerLink]="item.path" routerLinkActive="active">
+        <ui-icon [name]="item.icon"></ui-icon>
+        <span>{{ item.label }}</span>
+        
+      </a>
+
+      <span class="nav-label secondary">Account</span>
+      <a class="nav-item" routerLink="/profile" routerLinkActive="active">
+        <ui-icon name="teacher"></ui-icon><span>My profile</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a class="support-card" routerLink="/guide" aria-label="Open the MTRM guide">
+        <span class="support-icon">?</span>
+        <div><b>Need help?</b><small>Open the MTRM guide</small></div>
+        <ui-icon name="chevron"></ui-icon>
+      </a>
+      <div class="profile-card">
+        <span class="avatar">{{ initials }}</span>
+        <span><b>{{ name }}</b><small>MTRM Teacher</small></span>
+        <button class="logout-button" aria-label="Log out" (click)="auth.logout()"><ui-icon name="logout"></ui-icon></button>
+      </div>
+    </div>
+  </aside>
+
+  <button class="backdrop" aria-label="Close menu" (click)="sidebarOpen = false"></button>
+
+  <section class="main-column">
+    <header class="topbar">
+      <button class="mobile-menu" aria-label="Open menu" (click)="sidebarOpen = !sidebarOpen"><span></span><span></span><span></span></button>
+      <workspace-tools portal="teacher" [initials]="initials"></workspace-tools>
+    </header>
+
+    
+
+    <main class="content"><router-outlet /></main>
+  </section>
+</div>

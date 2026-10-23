@@ -1,0 +1,13 @@
+<header class="section-header">
+  <div class="section-heading"><span>Account</span><h1>My profile</h1><p>Keep your contact and professional information current.</p></div>
+  <button type="button" (click)="edit()" [disabled]="!loaded"><ui-icon name="edit"></ui-icon>Edit profile</button>
+</header>
+<p role="alert">{{error}}</p>
+<section class="profile">
+  <aside><i>{{name.slice(0,2).toUpperCase()}}</i><h2>{{name}}</h2><p>MTRM Teacher</p><em>Teacher profile</em></aside>
+  <div class="profile-details">
+    <div class="profile-section-title"><span>Personal information</span><p>Your account details, all in one place.</p></div>
+    <dl><div><dt>Display name</dt><dd>{{name || '—'}}</dd></div><div><dt>Email address</dt><dd>{{email || '—'}}</dd></div><div><dt>Phone number</dt><dd>{{phone || 'Not provided'}}</dd></div><div><dt>Qualifications</dt><dd>{{qualifications || 'Not provided'}}</dd></div></dl>
+    <p class="profile-note">Your name and sign-in email are managed by MTRM Administration.</p>
+  </div>
+</section>

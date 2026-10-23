@@ -1,0 +1,2 @@
+import { CommonModule } from '@angular/common';import { Component,inject } from '@angular/core';import { RouterLink } from '@angular/router';import { TeacherDataService } from '../../core/teacher-data.service';import { UiIconComponent } from '../../ui-icon.component';
+@Component({selector:'app-dashboard-page',standalone:true,imports:[CommonModule,RouterLink,UiIconComponent],templateUrl:'./dashboard-page.component.html',styleUrl:'./dashboard-page.component.scss'})export class DashboardPageComponent{data=inject(TeacherDataService);async ngOnInit(){await this.data.load();}}

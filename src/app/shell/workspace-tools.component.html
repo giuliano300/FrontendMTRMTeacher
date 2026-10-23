@@ -1,0 +1,21 @@
+<div class="search-wrap">
+ <label class="search-field"><ui-icon name="search"></ui-icon><input #searchInput type="search" maxlength="120" role="combobox" aria-label="Search workspace" aria-autocomplete="list" aria-controls="workspace-results" [attr.aria-expanded]="searchOpen" [attr.aria-activedescendant]="active>=0?'workspace-result-'+active:null" [placeholder]="portal==='teacher'?'Search your sessions and materials…':'Search workers, courses, teachers…'" [value]="query" (input)="search(searchInput.value)" (focus)="searchOpen=true" (keydown)="key($event)"><kbd>Ctrl / ⌘ K</kbd></label>
+ <section class="search-popover" *ngIf="searchOpen" aria-label="Workspace search">
+  <div class="popover-title"><span>Search {{portal==='teacher'?'your teaching workspace':'MTRM'}}</span><button type="button" *ngIf="query" (click)="clear()">Clear</button></div>
+  <p class="state" *ngIf="query.trim().length<2">Type at least 2 characters to find {{portal==='teacher'?'assigned sessions and shared materials.':'workers, teachers, classrooms, courses, sessions and certificates.'}}</p>
+  <p class="state" role="status" *ngIf="searchBusy">Searching…</p><p class="state error" role="alert" *ngIf="searchError">{{searchError}}</p>
+  <div id="workspace-results" role="listbox" aria-label="Search results">
+   <ng-container *ngFor="let item of results;let i=index"><h3 *ngIf="i===0||results[i-1].category!==item.category">{{item.category}}</h3><button type="button" role="option" [attr.id]="'workspace-result-'+i" [attr.aria-selected]="active===i" [class.active]="active===i" (click)="go(item.url)" (mouseenter)="active=i"><span><strong>{{item.title}}</strong><small>{{item.detail}}</small></span><ui-icon name="chevron"></ui-icon></button></ng-container>
+  </div>
+  <p class="state" *ngIf="query.trim().length>=2&&!searchBusy&&!searchError&&!results.length">No matching records. Try a name, course title or reference.</p><p class="footnote" *ngIf="hasMore">Showing the first 6 matches per category. Refine your search for more precise results.</p>
+ </section>
+</div>
+<div class="tools-actions"><span class="workspace-label">{{portal==='teacher'?'Teacher workspace':'Training workspace'}}</span><button class="bell" type="button" (click)="toggleNotices()" [attr.aria-expanded]="notificationsOpen" aria-controls="workspace-notifications" [attr.aria-label]="'Notifications'+(unread?', '+unread+' unread':'')"><ui-icon name="bell"></ui-icon><span class="badge" *ngIf="unread">{{unread>99?'99+':unread}}</span></button><span class="top-avatar">{{initials}}</span></div>
+<section class="notifications" id="workspace-notifications" *ngIf="notificationsOpen" aria-label="Notifications">
+ <div class="popover-title"><div><span>Workspace updates</span><h2>Notifications <em>{{unread}} unread</em></h2></div><button type="button" aria-label="Close notifications" (click)="notificationsOpen=false">×</button></div>
+ <div class="notification-tools"><button type="button" (click)="refreshNotices()" [disabled]="noticeBusy">Refresh</button><button type="button" (click)="markAll()" [disabled]="!unread">Mark all read</button></div>
+ <p class="state error" role="alert" *ngIf="noticeError">{{noticeError}}</p><p class="state" role="status" *ngIf="noticeBusy&&!updatedAt">Loading updates…</p>
+ <div class="notification-list"><a *ngFor="let item of notices" [href]="item.url" (click)="openNotice(item,$event)" [class.unread]="isUnread(item)"><span class="notice-icon"><ui-icon [name]="item.kind==='attention'?'alert':item.kind==='schedule'?'calendar':item.kind==='material'?'download':'certificate'"></ui-icon></span><span><strong>{{item.title}}</strong><small>{{item.detail}}</small></span><span class="unread-dot" *ngIf="isUnread(item)" aria-label="Unread"></span></a></div>
+ <p class="state" *ngIf="!noticeBusy&&!noticeError&&!notices.length">You're all caught up. No current updates need your attention.</p>
+ <p class="footnote">Current activity, refreshed every minute. Up to 10 sessions or materials per category. Read status is saved on this browser.<span *ngIf="updatedAt"> Updated {{updatedAt|date:'HH:mm'}}.</span></p><p class="state error" *ngIf="storageUnavailable">Browser storage is unavailable. Read status will reset when you reload.</p>
+</section>

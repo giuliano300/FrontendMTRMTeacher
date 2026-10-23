@@ -1,0 +1,13 @@
+<header class="section-header">
+  <div class="section-heading"><span>Register</span><h1>Attendance</h1><p>Record attendance for your assigned session.</p></div>
+  <select aria-label="Training session" [(ngModel)]="sessionId" (change)="select()" [disabled]="loading"><option *ngFor="let item of data.dashboard.sessions" [value]="item.id">{{item.course}} · {{item.startsAt|date:'dd MMM'}}</option></select>
+</header>
+<p class="attendance-feedback" role="status" *ngIf="message">{{message}}</p>
+<p class="attendance-feedback error" role="alert" *ngIf="error">{{error}}</p>
+<section class="hero" *ngIf="session"><div><span>Selected session</span><h2>{{session.course}}</h2><p>{{session.startsAt|date:'dd MMM yyyy'}} · {{session.classroom}}{{session.location ? ', ' + session.location : ''}}</p></div><strong>{{session.attendees.length}}<small>registered</small></strong><p class="register-hint">Open a learner's record<br>to update attendance.</p></section>
+<section class="panel" *ngIf="session">
+  <div class="row head"><span>Learner</span><span>Worker ID</span><span>Entity</span><span>Attendance</span><span>Notes</span><span></span></div>
+  <div class="row" *ngFor="let item of session.attendees"><b>{{item.name}}</b><code>{{item.workerNumber}}</code><span>{{item.entity || '—'}}</span><em class="attendance-badge" [class.present]="item.attendance===2">{{labels[item.attendance]}}</em><span class="attendance-note">{{item.notes || '—'}}</span><button class="record-button" (click)="record(item)" [attr.aria-label]="'Record attendance for ' + item.name"><ui-icon name="edit"></ui-icon>Record</button></div>
+  <p class="empty" *ngIf="!session.attendees.length">No learners are enrolled in this session.</p>
+</section>
+<section class="empty" *ngIf="!session && !error">{{loading ? 'Loading attendance…' : 'No assigned session is available for attendance.'}}</section>

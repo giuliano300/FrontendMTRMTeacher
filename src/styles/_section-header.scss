@@ -3,12 +3,12 @@
  header.section-header {
   position:relative; isolation:isolate; overflow:hidden; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px;
   min-height:166px; margin:0 0 26px; padding:30px 34px; border:1px solid #e8dadd; border-radius:22px;
-  background:linear-gradient(112deg,#f5e9e9,#f8f1ee 66%,#f1e4e7); color:#49343d; box-shadow:0 4px 16px #59414a04;
+  background:linear-gradient(112deg,#f5e9e9,#f8f1ee 66%,#f1e4e7); color:#49343d; box-shadow:0 8px 26px rgba(52,43,48,0.05);
   &::before { content:''; position:absolute; z-index:-1; pointer-events:none; right:-48px; bottom:-240px; width:420px; height:420px; border:1px solid #b97b8929; border-radius:110px 240px 110px 240px; transform:rotate(-17deg); box-shadow:0 0 0 45px #b97b8906,0 0 0 90px #b97b8905; }
   > .section-heading { min-width:0; flex:1 1 340px; }
-  .section-heading > span { display:block; color:#9b5969; text-transform:uppercase; letter-spacing:.15em; font-size:11px; font-weight:650; }
-  h1 { margin:10px 0; color:#49343d; font-size:clamp(28px,2.8vw,38px); line-height:1.12; letter-spacing:-.035em; font-weight:650; }
-  p { max-width:680px; margin:0; color:#877079; font-size:13px; line-height:1.65; }
+  .section-heading > span { display:block; color:#834354; text-transform:uppercase; letter-spacing:.15em; font-size:11px; font-weight:650; }
+  h1 { margin:10px 0; color:#3c2630; font-size:clamp(28px,2.8vw,38px); line-height:1.12; letter-spacing:-.035em; font-weight:650; }
+  p { max-width:680px; margin:0; color:#71545f; font-size:13px; line-height:1.65; }
   .section-actions { display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
   > button, > a, .section-actions > button, .section-actions > a {
    display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:44px; padding:12px 18px; border:1px solid transparent; border-radius:11px;

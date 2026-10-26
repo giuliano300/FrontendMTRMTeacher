@@ -1,39 +1,34 @@
-// Included by each routed page, keeping the styles page-scoped in both portals.
+// Melita section cards. Included per route to preserve page-scoped styles.
 @mixin section-header {
-  header.section-header {
-    position: relative; isolation: isolate; overflow: hidden;
-    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;
-    min-height: 174px; margin: 0 0 24px; padding: 30px 34px;
-    border: 1px solid #19475f; border-radius: 24px;
-    background: linear-gradient(115deg, #082638, #103e55 65%, #145979);
-    color: #fff; box-shadow: 0 12px 30px #08263812;
-    &::before { content: ''; position: absolute; z-index: -1; pointer-events: none; right: -82px; bottom: -215px; width: 390px; height: 390px; border: 1px solid #33afe53b; border-radius: 50%; box-shadow: 0 0 0 54px #33afe509, 0 0 0 108px #33afe507; }
-    > .section-heading { min-width: 0; flex: 1 1 340px; }
-    .section-heading > span { display: block; color: #ffb365; text-transform: uppercase; letter-spacing: .13em; font-size: 11px; font-weight: 750; }
-    h1 { margin: 10px 0; color: #fff; font-size: clamp(28px, 2.8vw, 38px); line-height: 1.12; letter-spacing: -.035em; font-weight: 750; }
-    p { max-width: 680px; margin: 0; color: #c3d8e2; font-size: 13px; line-height: 1.65; }
-    .section-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
-    > button, > a, .section-actions > button, .section-actions > a {
-      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-      min-height: 46px; padding: 12px 18px; border: 1px solid transparent; border-radius: 12px;
-      background: #f08b21; color: #fff; font: 500 13px var(--font-ui);
-      text-decoration: none; cursor: pointer; white-space: nowrap; box-shadow: 0 5px 16px #03162218;
-      &:hover { background: #ffa443; }
-      &:focus-visible { outline: 3px solid #9eddf7; outline-offset: 4px; }
-    }
-    .section-actions > button:first-child:not(:last-child) { background: #ffffff12; border-color: #ffffff40; color: #fff; &:hover { background: #ffffff23; } }
-    > select { width: min(330px,100%); min-width: 0; min-height: 46px; border: 1px solid #adcbd84a; border-radius: 12px; padding: 10px 13px; background: #fff; color: #173548; font: 13px var(--font-ui); }
-    > .count, > .total { background: #ffffff0d; border: 1px solid #ffffff25; border-radius: 16px; padding: 15px 24px; min-width: 108px; text-align: right; }
-    > .count small, > .total small { display:block; color: #c3d8e2; font-size: 13px; }
-    > .count b, > .total b { display:block; color: #fff; font-size: 30px; }
-    button:disabled { opacity: .55; cursor: not-allowed; }
+ header.section-header {
+  position:relative; isolation:isolate; overflow:hidden; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px;
+  min-height:166px; margin:0 0 26px; padding:30px 34px; border:1px solid #e8dadd; border-radius:22px;
+  background:linear-gradient(112deg,#f5e9e9,#f8f1ee 66%,#f1e4e7); color:#49343d; box-shadow:0 4px 16px #59414a04;
+  &::before { content:''; position:absolute; z-index:-1; pointer-events:none; right:-48px; bottom:-240px; width:420px; height:420px; border:1px solid #b97b8929; border-radius:110px 240px 110px 240px; transform:rotate(-17deg); box-shadow:0 0 0 45px #b97b8906,0 0 0 90px #b97b8905; }
+  > .section-heading { min-width:0; flex:1 1 340px; }
+  .section-heading > span { display:block; color:#9b5969; text-transform:uppercase; letter-spacing:.15em; font-size:11px; font-weight:650; }
+  h1 { margin:10px 0; color:#49343d; font-size:clamp(28px,2.8vw,38px); line-height:1.12; letter-spacing:-.035em; font-weight:650; }
+  p { max-width:680px; margin:0; color:#877079; font-size:13px; line-height:1.65; }
+  .section-actions { display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
+  > button, > a, .section-actions > button, .section-actions > a {
+   display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:44px; padding:12px 18px; border:1px solid transparent; border-radius:11px;
+   background:var(--brand); color:#fff; font:500 13px var(--font-ui); text-decoration:none; cursor:pointer; white-space:nowrap; box-shadow:0 4px 12px #872d3914;
+   &:hover { background:var(--brand-hover); }
+   &:focus-visible { outline:3px solid #c8909b; outline-offset:4px; }
   }
-  @media(max-width:760px) {
-    header.section-header { min-height: 0; padding: 25px 22px; border-radius: 18px; align-items: flex-start; gap: 20px;
-      > .section-heading { flex-basis: 100%; }
-      .section-actions { width: 100%; }
-      .section-actions > button, .section-actions > a { flex: 1 1 auto; }
-      h1 { font-size: 29px; }
-    }
+  .section-actions > button:first-child:not(:last-child) { background:#ffffffb3; border-color:#e3cdd2; color:#794b58; box-shadow:none; &:hover { background:#fff; } }
+  > select { width:min(330px,100%); min-width:0; min-height:46px; border:1px solid #dfcbd0; border-radius:12px; padding:10px 13px; background:#fff; color:#57434c; font:13px var(--font-ui); }
+  > .count, > .total { background:#ffffff70; border:1px solid #ffffff; border-radius:16px; padding:15px 24px; min-width:108px; text-align:right; }
+  > .count small, > .total small { display:block; color:#927c84; font-size:13px; }
+  > .count b, > .total b { display:block; color:#872d39; font-size:30px; }
+  button:disabled { opacity:.55; cursor:not-allowed; }
+ }
+ @media(max-width:760px) {
+  header.section-header { min-height:0; padding:25px 22px; border-radius:18px; align-items:flex-start; gap:20px;
+   > .section-heading { flex-basis:100%; }
+   .section-actions { width:100%; }
+   .section-actions > button, .section-actions > a { flex:1 1 auto; }
+   h1 { font-size:29px; }
   }
+ }
 }

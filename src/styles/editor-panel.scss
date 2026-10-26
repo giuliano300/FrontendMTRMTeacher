@@ -2,36 +2,36 @@
 dialog.waman-editor-panel {
   position: fixed; inset: 0 0 0 auto; margin: 0; padding: 0;
   width: min(720px, 100vw); max-width: 100vw; height: 100dvh; max-height: 100dvh;
-  border: 0; border-left: 1px solid #d9e6ed; border-radius: 0;
-  color: #173548; background: #f5f8fa; box-shadow: -22px 0 70px #08263830;
+  border: 0; border-left: 1px solid #eee6e4; border-radius: 0;
+  color: #342b30; background: #fcfaf9; box-shadow: -22px 0 70px #342b3030;
   font: 13px var(--font-ui); overflow: hidden;
   &[open] { animation: editor-slide .28s cubic-bezier(.22,1,.36,1) both; }
-  &::backdrop { background: #08263866; backdrop-filter: blur(3px); }
+  &::backdrop { background: #342b3066; backdrop-filter: blur(3px); }
   [hidden] { display: none !important; }
   .editor-layout { height: 100%; display: flex; flex-direction: column; }
-  .editor-head { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-shrink: 0; padding: 27px 28px; background: linear-gradient(115deg,#082638,#145979); color: #fff; }
+  .editor-head { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-shrink: 0; padding: 27px 28px; background: linear-gradient(115deg,#342b30,#514149); color: #fff; }
   .editor-head h2 { min-width: 0; margin: 0; font-size: 25px; font-weight: 700; letter-spacing: -.5px; line-height: 1.2; }
-  .dialog-emblem { width: 48px; height: 48px; background: #ffffff10; border-color: #ffffff30; color: #8ed9f9; }
-  .dialog-eyebrow { color: #ffb365; font-size: 11px; letter-spacing: .1em; margin-bottom: 7px; }
+  .dialog-emblem { width: 48px; height: 48px; background: #ffffff10; border-color: #ffffff30; color: #bba7ad; }
+  .dialog-eyebrow { color: #bc7c87; font-size: 11px; letter-spacing: .1em; margin-bottom: 7px; }
   .editor-close { flex-shrink: 0; display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid #ffffff35; border-radius: 11px; background: #ffffff0c; color: #fff; font: 27px var(--font-ui); cursor: pointer; }
   .editor-close:hover { background: #ffffff22; }
   .editor-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable; padding: 24px 28px 30px; }
-  .dialog-description { margin: 0 0 24px; color: #667e8d; }
+  .dialog-description { margin: 0 0 24px; color: #70646b; }
   .editor-fields { border: 0; padding: 0; margin: 0; min-width: 0; display: grid; gap: 18px; }
-  .editor-section { padding: 22px; border: 1px solid #e0e9ee; border-radius: 16px; background: #fff; box-shadow: 0 3px 10px #08263803; min-width: 0; }
-  .editor-section h3 { display: flex; align-items: center; gap: 11px; margin: 0 0 22px; padding-bottom: 16px; border-bottom: 1px solid #e9eff2; font-size: 14px; color: #214659; }
-  .editor-section h3 > span { display: grid; place-items: center; width: 30px; height: 30px; flex-shrink: 0; border-radius: 9px; background: #eaf7fd; color: #147aa9; font-size: 11px; }
+  .editor-section { padding: 22px; border: 1px solid #eee6e4; border-radius: 16px; background: #fff; box-shadow: 0 3px 10px #342b3003; min-width: 0; }
+  .editor-section h3 { display: flex; align-items: center; gap: 11px; margin: 0 0 22px; padding-bottom: 16px; border-bottom: 1px solid #f7f3f2; font-size: 14px; color: #342b30; }
+  .editor-section h3 > span { display: grid; place-items: center; width: 30px; height: 30px; flex-shrink: 0; border-radius: 9px; background: #f7f3f2; color: #914351; font-size: 11px; }
   .dialog-field input, .dialog-field select, .dialog-field textarea { min-height: 46px; background: #fff; }
   .dialog-field textarea { min-height: 104px; }
   .dialog-required-note { margin: 22px 1px 0; font-size: 12px; }
   .editor-error { margin: 0 0 16px; padding: 12px 16px; border: 1px solid #edcebf; border-radius: 12px; background: #fff3ec; color: #9a472b; line-height: 1.5; }
-  .editor-footer { flex-shrink: 0; padding: 20px 28px; border-top: 1px solid #dfe8ed; background: #fff; box-shadow: 0 -8px 24px #08263804; }
+  .editor-footer { flex-shrink: 0; padding: 20px 28px; border-top: 1px solid #eee6e4; background: #fff; box-shadow: 0 -8px 24px #342b3004; }
   .editor-footer-actions { display: flex; align-items: center; gap: 10px; }
-  .editor-status { margin-right: auto; max-width: 190px; color: #7a8d98; font-size: 12px; line-height: 1.45; }
-  .editor-footer button { min-height: 44px; padding: 11px 18px; border: 1px solid #d7e3e9; border-radius: 11px; background: #fff; color: #395667; font: 700 13px var(--font-ui); cursor: pointer; }
-  .editor-footer .editor-save { border-color: transparent; background: #f08b21; color: #fff; font: 500 13px var(--font-ui); box-shadow: 0 5px 12px #f08b2120; }
-  .editor-footer .editor-save:hover { background: #ffa443; }
-  button:focus-visible { outline: 3px solid #33afe5; outline-offset: 3px; }
+  .editor-status { margin-right: auto; max-width: 190px; color: #82767d; font-size: 12px; line-height: 1.45; }
+  .editor-footer button { min-height: 44px; padding: 11px 18px; border: 1px solid #eee6e4; border-radius: 11px; background: #fff; color: #514149; font: 700 13px var(--font-ui); cursor: pointer; }
+  .editor-footer .editor-save { border-color: transparent; background: #872d39; color: #fff; font: 500 13px var(--font-ui); box-shadow: 0 5px 12px #872d3920; }
+  .editor-footer .editor-save:hover { background: #872d39; }
+  button:focus-visible { outline: 3px solid #a75a67; outline-offset: 3px; }
   button:disabled { opacity: .6; cursor: wait; }
   .editor-discard { padding: 14px 16px; margin-bottom: 16px; border: 1px solid #f2d7b8; border-radius: 12px; background: #fff8ef; }
   .editor-discard strong, .editor-discard > span { display: block; line-height: 1.5; }

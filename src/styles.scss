@@ -4,17 +4,21 @@
 :root {
   color-scheme: light;
   --font-ui: "Aptos", "Inter", "Segoe UI", sans-serif;
-  --navy-950: #082638;
-  --navy-900: #0b2f46;
-  --navy-800: #123e58;
-  --ink: #173548;
-  --muted: #6d818d;
-  --orange: #f08b21;
-  --sky: #33afe5;
-  --canvas: #f3f7f7;
-  --line: #dce7e9;
+  --brand: #872d39;
+  --brand-hover: #6d202d;
+  --brand-soft: #f5e9eb;
+  --surface: #ffffff;
+  --navy-950: #342b30;
+  --navy-900: #342b30;
+  --navy-800: #342b30;
+  --ink: #43373d;
+  --muted: #82767d;
+  --orange: #872d39;
+  --sky: #a75a67;
+  --canvas: #f8f6f3;
+  --line: #e9e1de;
   --white: #ffffff;
-  --amber: #e3a13a;
+  --amber: #872d39;
   --danger: #e66868;
   font-family: var(--font-ui);
   font-size: 13px;
@@ -44,5 +48,4 @@ button { -webkit-tap-highlight-color: transparent; }
     transition-duration: .01ms !important;
   }
 }
-
-.search-target-selected { outline:2px solid #33afe5; outline-offset:4px; scroll-margin-top:100px; }
+.search-target-selected { outline:2px solid #a75a67; outline-offset:4px; scroll-margin-top:100px; }

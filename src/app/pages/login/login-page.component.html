@@ -1,1 +1,22 @@
-<main><section class="brand-side"><div class="brand"><span><i></i><i></i><i></i></span><div><b>WAMAN</b><small>MTRM Teacher</small></div></div><div class="copy"><em>Your teaching day, organised.</em><h1>Lead every session<br>with <span>confidence.</span></h1><p>See your schedule, manage attendance and close training sessions from one focused workspace.</p></div><article><ui-icon name="calendar"></ui-icon><div><small>Your training workspace</small><b>Sessions · Attendance · Materials</b></div></article></section><section class="form-side"><form (ngSubmit)="submit()"><span>Teacher access</span><h2>Welcome back</h2><p>Use the teacher access enabled by your training administrator.</p><label>Email address<input name="email" type="email" [(ngModel)]="email" required></label><label>Password<input name="password" type="password" [(ngModel)]="password" required></label><button [disabled]="busy">{{busy?'Signing in…':'Open teacher portal'}}<ui-icon name="chevron"></ui-icon></button><small>Secure WAMAN internal access</small></form></section></main>
+<main class="login-page">
+  <section class="story">
+    <div class="brand"><img src="branding/mtrm-logo.png" alt="Melita Training &amp; Resource Management" width="126" height="131"><span>Training &amp; resource management</span></div>
+    <div class="copy">
+      <span class="kicker">Your teaching day, organised</span>
+      <h1>Lead every session<br><em>with confidence.</em></h1>
+      <p>See your schedule, manage attendance and close training sessions from one focused workspace.</p>
+      <div class="proof"><span><b>Prepare</b><small>your sessions</small></span><span><b>Teach</b><small>with confidence</small></span><span><b>Track</b><small>learning outcomes</small></span></div>
+    </div>
+    <div class="visual"><div class="score"><ui-icon name="calendar"></ui-icon><span>Your training workspace</span><b>Melita</b><small>Sessions · Attendance · Materials</small></div></div>
+  </section>
+  <section class="form-side">
+    <form (ngSubmit)="submit()">
+      <span class="form-kicker">Teacher access</span><h2>Welcome back</h2>
+      <p>Use the teacher access enabled by your training administrator.</p>
+      <label>Email address<div class="field"><ui-icon name="mail"></ui-icon><input name="email" type="email" [(ngModel)]="email" autocomplete="username" required></div></label>
+      <label>Password<div class="field"><ui-icon name="lock"></ui-icon><input name="password" type="password" [(ngModel)]="password" autocomplete="current-password" required></div></label>
+      <button class="submit" [disabled]="busy">{{busy?'Signing in…':'Open teacher portal'}}<ui-icon name="chevron"></ui-icon></button>
+      <small class="secure">Secure access · Melita teacher portal</small>
+    </form>
+  </section>
+</main>

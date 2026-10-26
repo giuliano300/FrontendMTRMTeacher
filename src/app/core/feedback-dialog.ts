@@ -14,7 +14,7 @@ function heading(title:string,eyebrow:string,icon:Icon) {
 }
 export async function feedbackDialog(options:{title:string;message:string;tone?:'error'|'success';icon?:Icon;eyebrow?:string}) {
  await Swal.fire({
-  title:heading(options.title,options.eyebrow??'WAMAN · Workspace',options.icon??(options.tone==='success'?'check':'alert')),
+  title:heading(options.title,options.eyebrow??'Melita · Workspace',options.icon??(options.tone==='success'?'check':'alert')),
   html:`<p class="dialog-description">${escapeHtml(options.message)}</p>`,
   customClass:{popup:'waman-dialog waman-feedback waman-feedback-'+(options.tone??'error'),actions:'dialog-actions'},
   showCloseButton:true,closeButtonAriaLabel:'Close notification',confirmButtonText:'Got it'

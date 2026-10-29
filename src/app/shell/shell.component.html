@@ -1,5 +1,5 @@
 <div class="app-shell" [class.sidebar-open]="sidebarOpen">
-  <aside class="sidebar">
+  <aside class="sidebar" id="main-sidebar">
     <a class="brand" routerLink="/dashboard">
       <img class="brand-logo" src="branding/mtrm-logo.png" alt="Melita Training &amp; Resource Management" width="70" height="73">
       <span class="brand-caption">Teacher workspace</span>
@@ -37,7 +37,7 @@
 
   <section class="main-column">
     <header class="topbar">
-      <button class="mobile-menu" aria-label="Open menu" (click)="sidebarOpen = !sidebarOpen"><span></span><span></span><span></span></button>
+      <button class="mobile-menu" aria-controls="main-sidebar" [attr.aria-expanded]="sidebarOpen" aria-label="Open menu" (click)="sidebarOpen = !sidebarOpen"><span></span><span></span><span></span></button>
       <workspace-tools portal="teacher" [initials]="initials"></workspace-tools>
     </header>
 

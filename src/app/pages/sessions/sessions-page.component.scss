@@ -5,4 +5,5 @@ header{margin-bottom:24px}header>span{color:var(--brand);text-transform:uppercas
 :host .body .complete { color: #fff; font: 500 13px var(--font-ui); }
 :host .body .complete:hover { background:var(--brand-hover); border-color:var(--brand-hover); }
 .body button { cursor:pointer; }
+.body button:disabled { cursor:wait; opacity:.6; }
 .body button:focus-visible { outline:3px solid #c8909b; outline-offset:3px; }

@@ -6,10 +6,13 @@ import { confirmAction,feedbackDialog } from '../../core/feedback-dialog';
 @Component({selector:'app-sessions-page',standalone:true,imports:[CommonModule,UiIconComponent],templateUrl:'./sessions-page.component.html',styleUrl:'./sessions-page.component.scss'})
 export class SessionsPageComponent {
  data=inject(TeacherDataService);pending=false;
+ canStart(item:any){return ['Draft','Confirmed'].includes(item.status);}
+ canComplete(item:any){return ['Draft','Confirmed','InProgress'].includes(item.status);}
+ statusLabel(status:string){return status==='InProgress'?'In progress':status;}
  async ngOnInit(){await this.load();}
  async load(){try{await this.data.load();}catch{await feedbackDialog({title:'Sessions unavailable',eyebrow:'Teaching · My sessions',message:'Your schedule could not be loaded. Please refresh the page and try again.'});}}
  async update(item:any,status:number,label:string){
-  if(this.pending)return;this.pending=true;
+  if(this.pending||(status===3&&!this.canStart(item))||(status===4&&!this.canComplete(item)))return;this.pending=true;
   try {
    const completed=status===4;
    const saved=await confirmAction({title:completed?'Complete this session?':'Start this session?',eyebrow:'Teaching · Session progress',icon:completed?'check':'play',description:item.course,
